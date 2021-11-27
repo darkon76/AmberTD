@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3863810953071311692}
   - component: {fileID: 3516571279363809205}
+  - component: {fileID: 1223024511861252116}
+  - component: {fileID: 1913579915366018501}
   m_Layer: 0
   m_Name: CannonTower
   m_TagString: Untagged
@@ -50,6 +52,65 @@ MonoBehaviour:
   _layer:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &1223024511861252116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315890284787245813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c968565e4d0ae3547bc9753eaaab7538, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1913579915366018501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315890284787245813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46b5ca18341d3454f913fe4c01fe9d24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _projectilePrefab: {fileID: 1750544222774444729, guid: 965b1bd64ba3c0244bb438d8f2945061, type: 3}
+  _shootCD: 1
+  _muzzle: {fileID: 164625397954981981}
+  _currentTime: 0
+  _target: {fileID: 0}
+--- !u!1 &524867882800210492
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 164625397954981981}
+  m_Layer: 0
+  m_Name: Muzzle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &164625397954981981
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524867882800210492}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.899, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5940251458178192459}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1565112383107645851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,5 +263,10 @@ GameObject:
 --- !u!4 &9136037144004183594 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: bd7f8561cbdc76d4e8cb5bfa38d1cf3d, type: 3}
+  m_PrefabInstance: {fileID: 8737827830099452353}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5940251458178192459 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -6110536800543132278, guid: bd7f8561cbdc76d4e8cb5bfa38d1cf3d, type: 3}
   m_PrefabInstance: {fileID: 8737827830099452353}
   m_PrefabAsset: {fileID: 0}
