@@ -7,7 +7,7 @@ public class TowerControl : MonoBehaviour
 {
     private LookAt2D _turrentLookAt2D;
     private Targeting _targeting;
-    private Shooting _turretShooting;
+    private ProjectileLauncher _turretProjectileLauncher;
 
     private void Awake()
     {
@@ -21,9 +21,9 @@ public class TowerControl : MonoBehaviour
             _turrentLookAt2D = GetComponentInChildren<LookAt2D>();
         }
 
-        if (_turretShooting == null)
+        if (_turretProjectileLauncher == null)
         {
-            _turretShooting = GetComponent<Shooting>();
+            _turretProjectileLauncher = GetComponent<ProjectileLauncher>();
         }
 
         _targeting.OnTargetChanged += TargetChanged;
@@ -39,7 +39,7 @@ public class TowerControl : MonoBehaviour
     {
         var target = _targeting.Target;
         _turrentLookAt2D.Target = target;
-        _turretShooting.Target = target;
+        _turretProjectileLauncher.Target = target;
     }
 
 }

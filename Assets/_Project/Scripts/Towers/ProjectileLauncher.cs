@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
-public class Shooting : MonoBehaviour
+public class ProjectileLauncher : MonoBehaviour
 {
-    [SerializeField] private ProjectileControl _projectilePrefab;
+    [SerializeField] private DamageSourceSO _damageSource;
     [SerializeField]
     private float _shootCD = 1;
 
@@ -17,8 +16,7 @@ public class Shooting : MonoBehaviour
     private GameObject _target;
 
     private bool _canShoot = true;
-
-    
+    public event Action OnShoot;
 
     public GameObject Target
     {
@@ -45,13 +43,7 @@ public class Shooting : MonoBehaviour
         }
 
         _currentTime = 0;
-
-        var projectileGO = PoolManager.RequestGameObject(_projectilePrefab.gameObject, 4);
-        var projectile = projectileGO.GetComponent<ProjectileControl>();
-        projectile.transform.SetPositionAndRotation(_muzzle.transform.position, _muzzle.transform.rotation);
-        projectile.SetTarget(Target.transform);
-        projectileGO.SetActive(true);
-
+        _damageSource.CreateOne(_muzzle, Target.transform);
+        OnShoot?.Invoke();
     }
-
 }
