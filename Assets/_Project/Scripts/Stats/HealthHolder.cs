@@ -3,11 +3,12 @@ using UnityEngine;
 
 public class HealthHolder : MonoBehaviour
 {
-    [SerializeField] private float Max = 10;
+    public float Max = 10;
     [SerializeField] private float _current = 10;
 
     public event Action OnDead;
     public event Action OnHealthChanged;
+    public bool IsAlive = true;
 
     public float Current
     {
@@ -21,12 +22,18 @@ public class HealthHolder : MonoBehaviour
             }
 
             _current = value;
-            OnHealthChanged?.Invoke();
 
-            if (_current <= 0)
+            if (_current <= 0 && IsAlive)
             {
+                IsAlive = false;
                 OnDead?.Invoke();
             }
+
+            if (_current > 0)
+            {
+                IsAlive = true;
+            }
+            OnHealthChanged?.Invoke();
         }
     }
 }

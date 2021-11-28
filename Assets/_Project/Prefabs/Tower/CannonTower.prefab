@@ -12,7 +12,9 @@ GameObject:
   - component: {fileID: 3516571279363809205}
   - component: {fileID: 1223024511861252116}
   - component: {fileID: 1913579915366018501}
-  m_Layer: 0
+  - component: {fileID: 295464497}
+  - component: {fileID: 295464502}
+  m_Layer: 11
   m_Name: CannonTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,11 +78,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46b5ca18341d3454f913fe4c01fe9d24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _projectilePrefab: {fileID: 1750544222774444729, guid: 965b1bd64ba3c0244bb438d8f2945061, type: 3}
+  _damageSource: {fileID: 11400000, guid: 1bb4133bb6a59a846933d4b720d4c612, type: 2}
   _shootCD: 1
   _muzzle: {fileID: 164625397954981981}
   _currentTime: 0
   _target: {fileID: 0}
+--- !u!65 &295464497
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315890284787245813}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &295464502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315890284787245813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae83d801d7457214abe8e168630997f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Offset: 0
 --- !u!1 &524867882800210492
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,7 +118,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 164625397954981981}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,6 +207,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: towerSquare_sampleF
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2424b0dca56db3545b084fabd30dddec, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2424b0dca56db3545b084fabd30dddec, type: 3}
 --- !u!4 &7704990822621171425 stripped
@@ -252,6 +284,18 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: bd7f8561cbdc76d4e8cb5bfa38d1cf3d, type: 3}
       propertyPath: m_Name
       value: weapon_cannon
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bd7f8561cbdc76d4e8cb5bfa38d1cf3d, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4607668393258877731, guid: bd7f8561cbdc76d4e8cb5bfa38d1cf3d, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7687833984507530404, guid: bd7f8561cbdc76d4e8cb5bfa38d1cf3d, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd7f8561cbdc76d4e8cb5bfa38d1cf3d, type: 3}

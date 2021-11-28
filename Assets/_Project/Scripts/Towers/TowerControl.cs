@@ -1,8 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+//Tower Control link all the components.
 public class TowerControl : MonoBehaviour
 {
     private LookAt2D _turrentLookAt2D;

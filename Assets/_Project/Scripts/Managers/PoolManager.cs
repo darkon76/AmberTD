@@ -11,6 +11,7 @@ public static class PoolManager
         if (poolHolder == null)
         {
             poolHolder = new GameObject("__PoolHolder");
+            GameObject.DontDestroyOnLoad(poolHolder);
         }
 
         if (!_pools.TryGetValue(gameObject, out var pool))

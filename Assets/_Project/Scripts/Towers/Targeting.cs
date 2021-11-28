@@ -23,6 +23,8 @@ public class Targeting : MonoBehaviour
         }
     }
 
+    private Collider _targetCollider;
+
     public event Action OnTargetChanged;
 
     [SerializeField]
@@ -59,11 +61,14 @@ public class Targeting : MonoBehaviour
 
     void Update()
     {
-        if (Target != null && Target.activeSelf)
+        //Check if the target is still valid.
+        if (_targetCollider != null && _targetCollider.enabled)
         {
+            //The target is still at range.
             var sqrMagnitude = Vector3.SqrMagnitude(Target.transform.position - transform.position);
             if (sqrMagnitude <= _sqrRadius)
             {
+                
                 return;
             }
         }
@@ -71,27 +76,31 @@ public class Targeting : MonoBehaviour
         //Using physics isn't optimal but for time limitations is the best way. 
         var numColliders =  Physics.OverlapSphereNonAlloc(transform.position, _radius, _colliders, _layer);
 
-        GameObject bestTarget = null;
+        //Evaluates all the colliders to get the best target.
+        Collider bestTarget = null;
         var minValue = float.MaxValue;
         for (var i = 0; i < numColliders; i++)
         {
-            var colliderGO = _colliders[i].gameObject;
-            var value = _targetEvaluator.Evaluate(transform, colliderGO);
+            var collider = _colliders[i];
+            var value = _targetEvaluator.Evaluate(transform, collider.gameObject);
             if (value < minValue)
             {
                 minValue = value;
-                bestTarget = colliderGO;
+                bestTarget = collider;
             }
         }
-
-        Target = bestTarget;
-
+        _targetCollider = bestTarget;
+        Target = bestTarget?.gameObject;
     }
 
     void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
+        Gizmos.color = Target == null? Color.green: Color.red;
         Gizmos.DrawWireSphere(transform.position, _radius);
+        if (Target != null)
+        {
+            Gizmos.DrawLine(transform.position, Target.transform.position);
+        }
     }
 
     

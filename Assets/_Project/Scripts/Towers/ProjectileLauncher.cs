@@ -43,6 +43,7 @@ public class ProjectileLauncher : MonoBehaviour
         }
 
         _currentTime = 0;
+        //Creates the projectile that will be shoot.
         _damageSource.CreateOne(_muzzle, Target.transform);
         OnShoot?.Invoke();
     }
