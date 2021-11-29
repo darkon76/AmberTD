@@ -62,7 +62,7 @@ public class Targeting : MonoBehaviour
     void Update()
     {
         //Check if the target is still valid.
-        if (_targetCollider != null && _targetCollider.enabled)
+        if (_targetCollider != null && _targetCollider.enabled && _targetCollider.gameObject.activeSelf)
         {
             //The target is still at range.
             var sqrMagnitude = Vector3.SqrMagnitude(Target.transform.position - transform.position);

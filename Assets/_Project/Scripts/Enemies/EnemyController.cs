@@ -18,10 +18,13 @@ public class EnemyController : MonoBehaviour
     private bool _canBeHurt = true;
 
     public AIPath _aiPath;
-    private Rigidbody _rigidbody;
+    private AIDestinationSetter _aiDestinationSetter;
 
     private IEnumerator _deathRoutine;
 
+
+    public float Speed = .5f;
+    public float MaxSpeed = 1;
 
 
     private void Awake()
@@ -45,30 +48,49 @@ public class EnemyController : MonoBehaviour
         }
 
         _aiPath = GetComponent<AIPath>();
-        _rigidbody = GetComponent<Rigidbody>();
+        _aiDestinationSetter = GetComponent<AIDestinationSetter>();
+    }
+
+    private void Start()
+    {
+        if (_aiDestinationSetter)
+        {
+            _aiDestinationSetter.target = LevelManager.Instance.EnemyObjective.transform;
+        }
     }
 
     private void OnEnable()
     {
         //Restore values.
-        _rigidbody.isKinematic = false;
-        _rigidbody.velocity = Vector3.zero;
         _health.Current = _health.Max;
         _collider.enabled = true;
         _canBeHurt = true;
-        _animator.ResetTrigger(HurtHash);
-        _animator.ResetTrigger(DeathHash);
-        _animator.SetFloat(WalkingSpeedHash, 0);
-        _aiPath.canMove = true;
+        if (_animator)
+        {
+            _animator.ResetTrigger(HurtHash);
+            _animator.ResetTrigger(DeathHash);
+            _animator.SetFloat(WalkingSpeedHash, 0);
+        }
+
+        if (_aiPath)
+        {
+            _aiPath.canMove = true;
+        }
+
+        _aiPath.maxSpeed = Speed;
     }
 
     private void Update()
     {
-        Vector3 relVelocity = transform.InverseTransformDirection(_aiPath.velocity);
-        relVelocity.y = 0;
+        if (_animator)
+        {
+            Vector3 relVelocity = transform.InverseTransformDirection(_aiPath.velocity);
+            relVelocity.y = 0;
 
-        // Speed relative to the character size
-        _animator.SetFloat(WalkingSpeedHash, (relVelocity.magnitude / .5f) / _aiPath.transform.lossyScale.x);
+            // Speed relative to the character size
+            _animator.SetFloat(WalkingSpeedHash, Speed / MaxSpeed);
+        }
+
     }
 
     private void OnDisable()
@@ -83,11 +105,16 @@ public class EnemyController : MonoBehaviour
 
     public void Dead()
     {
-        _rigidbody.isKinematic = true;
         _collider.enabled = false;
-        _animator.SetTrigger(DeathHash);
+        if (_animator)
+        {
+            _animator.SetTrigger(DeathHash);
+        }
         _canBeHurt = false;
-        _aiPath.canMove = false;
+        if (_aiPath)
+        {
+            _aiPath.canMove = false;
+        }
         _deathRoutine = DeathRoutine();
         StartCoroutine(_deathRoutine);
     }
@@ -98,7 +125,11 @@ public class EnemyController : MonoBehaviour
         {
             return;
         }
-        _animator.SetTrigger(HurtHash);
+
+        if (_animator)
+        {
+            _animator.SetTrigger(HurtHash);
+        }
     }
 
     IEnumerator DeathRoutine()

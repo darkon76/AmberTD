@@ -5,7 +5,21 @@ public static class PoolManager
 {
     private static GameObject poolHolder;
     private static Dictionary<GameObject, PoolObjectContainer> _pools = new Dictionary<GameObject, PoolObjectContainer>();
-    
+
+    static PoolManager()
+    {
+        EventManager.Listen(eEvent.LoadScene, OnLoadScene);
+    }
+
+    private static void OnLoadScene()
+    {
+        for (var i = 0; i < poolHolder.transform.childCount; i++)
+        {
+            var child = poolHolder.transform.GetChild(i);
+            child.gameObject.SetActive(false);
+        }
+    }
+
     public static GameObject RequestGameObject(GameObject gameObject, int count = 1)
     {
         if (poolHolder == null)

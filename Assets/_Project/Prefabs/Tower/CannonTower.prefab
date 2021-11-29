@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1223024511861252116}
   - component: {fileID: 1913579915366018501}
   - component: {fileID: 295464497}
-  - component: {fileID: 295464502}
+  - component: {fileID: 1665593502}
   m_Layer: 11
   m_Name: CannonTower
   m_TagString: Untagged
@@ -79,7 +79,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageSource: {fileID: 11400000, guid: 1bb4133bb6a59a846933d4b720d4c612, type: 2}
-  _shootCD: 1
   _muzzle: {fileID: 164625397954981981}
   _currentTime: 0
   _target: {fileID: 0}
@@ -96,7 +95,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &295464502
+--- !u!114 &1665593502
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,10 +104,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 315890284787245813}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae83d801d7457214abe8e168630997f3, type: 3}
+  m_Script: {fileID: 11500000, guid: 6eeeb31db04b97a4d81524722f463c10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Offset: 0
 --- !u!1 &524867882800210492
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,6 +136,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5940251458178192459}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8267456357985055321
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 405631841007540457}
+  m_Layer: 11
+  m_Name: Offset
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &405631841007540457
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8267456357985055321}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 9136037144004183594}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1565112383107645851
 MonoBehaviour:

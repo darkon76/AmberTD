@@ -42,7 +42,7 @@ TrailRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8141313245726302155}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -173,8 +173,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 0}
   _soMover: {fileID: 7704237371517481968}
-  _speed: 20
-  _damage: 0
+  DamageSourceSo: {fileID: 0}
+  DamageSource: {fileID: 0}
 --- !u!114 &7704237371517481968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,8 +187,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 955bae5b8d9ff5e48a25df94fd7eb411, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Target: {fileID: 0}
   Speed: 20
+  _target: {fileID: 0}
 --- !u!1 &8141313246531863153
 GameObject:
   m_ObjectHideFlags: 0

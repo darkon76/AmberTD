@@ -7,25 +7,26 @@ public class HybridProjectileSO : ProjectileDamageSourceSO
 
     public SingleTargetDamageDealer[] _singleTargetDamage;
     public AoeDamageDealer[] _aoeDamage;
-    public override void CreateOne(Transform source, Transform target)
+    public override void CreateOne(GameObject source, GameObject target, Transform damageOrigin)
     {
         var projectileGO = PoolManager.RequestGameObject(_prefab, 4);
         var projectile = projectileGO.GetComponent<ProjectileControl>();
-        projectile.transform.SetPositionAndRotation(source.transform.position, source.transform.rotation);
+        projectile.transform.SetPositionAndRotation(damageOrigin.position, damageOrigin.rotation);
         projectile.DamageSourceSo = this;
-        projectile.SetTarget(target.transform);
+        projectile.DamageSource = source;
+        projectile.SetTarget(target);
         projectileGO.SetActive(true);
     }
 
-    public override void DealDamage(Transform target)
+    public override void DealDamage(GameObject source, GameObject target)
     {
         foreach (var damage in _singleTargetDamage)
         {
-            damage.DealDamage(target);
+            damage.DealDamage(source, target);
         }
         foreach (var damage in _aoeDamage)
         {
-            damage.DealDamage(target);
+            damage.DealDamage(source, target);
         }
 
     }

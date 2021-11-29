@@ -6,16 +6,15 @@ public class ProjectileControl : MonoBehaviour
     private GameObject _hitEffect;
     
     //Just for debug it can be removed later.
-#if UNITY_EDITOR
+
     [SerializeField]
-    private Transform _target;
-#endif
+    private GameObject _target;
     [SerializeField]
     private SOMover _soMover;
 
     public ProjectileDamageSourceSO DamageSourceSo;
 
-
+    public GameObject DamageSource;
     private void Awake()
     {
         if (_soMover == null)
@@ -48,14 +47,12 @@ public class ProjectileControl : MonoBehaviour
             hitEffect.transform.position = transform.position;
             hitEffect.SetActive(true);
         }
-        DamageSourceSo.DealDamage( _target);
+        DamageSourceSo.DealDamage(DamageSource, _target);
     }
 
-    public void SetTarget(Transform target)
+    public void SetTarget(GameObject target)
     {
-#if UNITY_EDITOR
         _target = target;
-#endif
         _soMover.Target = target;
     }
 

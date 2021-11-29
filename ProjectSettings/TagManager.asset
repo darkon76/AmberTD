@@ -14,11 +14,11 @@ TagManager:
   - UI
   - Enemy
   - PlayerProjectile
-  - Player
+  - EnemyObjective
   - EnemyProjectile
   - Ground
   - BlockingGround
-  - 
+  - EnemyFlying
   - 
   - 
   - 

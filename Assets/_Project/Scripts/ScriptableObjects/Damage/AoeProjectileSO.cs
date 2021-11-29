@@ -8,18 +8,19 @@ public class AoeProjectileSO : ProjectileDamageSourceSO
     [SerializeField] private GameObject _prefab;
 
     public AoeDamageDealer _damage;
-    public override void CreateOne(Transform source, Transform target)
+    public override void CreateOne(GameObject source, GameObject target,  Transform damageOrigin)
     {
         var projectileGO = PoolManager.RequestGameObject(_prefab, 4);
         var projectile = projectileGO.GetComponent<ProjectileControl>();
-        projectile.transform.SetPositionAndRotation(source.transform.position, source.transform.rotation);
+        projectile.transform.SetPositionAndRotation(damageOrigin.transform.position, damageOrigin.transform.rotation);
         projectile.DamageSourceSo = this;
-        projectile.SetTarget(target.transform);
+        projectile.DamageSource = source;
+        projectile.SetTarget(target);
         projectileGO.SetActive(true);
     }
 
-    public override void DealDamage(Transform target)
+    public override void DealDamage(GameObject source, GameObject target)
     {
-        _damage.DealDamage(target);
+        _damage.DealDamage(source, target);
     }
 }

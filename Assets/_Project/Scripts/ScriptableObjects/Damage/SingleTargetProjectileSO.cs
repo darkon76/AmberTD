@@ -8,24 +8,25 @@ public class SingleTargetProjectileSO : ProjectileDamageSourceSO
 
     public SingleTargetDamageDealer _damage;
 
-    public override void CreateOne(Transform source, Transform target)
+    public override void CreateOne(GameObject source, GameObject target, Transform damageOrigin)
     {
         //Get an object from the pool.
         var projectileGO = PoolManager.RequestGameObject(_prefab, 4);
         var projectile = projectileGO.GetComponent<ProjectileControl>();
         //Set the projectile position and orientation to match the launcher origin.
-        projectile.transform.SetPositionAndRotation(source.transform.position, source.transform.rotation);
+        projectile.transform.SetPositionAndRotation(damageOrigin.position, damageOrigin.rotation);
         
         //There can be multiple projectiles using the same prefab so a registration is needed.
         projectile.DamageSourceSo = this;
-        projectile.SetTarget(target.transform);
+        projectile.SetTarget(target);
+        projectile.DamageSource = source;
 
         //Activate the projectile. 
         projectileGO.SetActive(true);
     }
 
-    public override void DealDamage(Transform target)
+    public override void DealDamage(GameObject source, GameObject target)
     {
-        _damage.DealDamage(target);
+        _damage.DealDamage(source, target);
     }
 }

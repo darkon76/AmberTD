@@ -24,14 +24,6 @@ public class MaterialChanger : MonoBehaviour
 
     public Material ValidMaterial;
     public Material InvalidMaterial;
-    private void OnValidate()
-    {
-        if (!Application.isPlaying)
-        {
-            return;
-        }
-        SetMaterials();
-    }
 
     private void Awake()
     {
@@ -40,6 +32,11 @@ public class MaterialChanger : MonoBehaviour
 
     private void SetMaterials()
     {
+        if (!Application.isPlaying)
+        {
+            return;
+        }
+
         var material = Valid ? ValidMaterial : InvalidMaterial;
         var materials = new Material[_meshRenderer.materials.Length];
         

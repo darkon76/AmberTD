@@ -5,7 +5,7 @@ using UnityEngine;
 
 public abstract class SOMover : MonoBehaviour
 {
-    public Transform Target;
+    public virtual GameObject Target { get; set; }
     public abstract event Action OnTargetReached;
     public float Speed;
 }

@@ -3,11 +3,11 @@ using UnityEngine;
 
 public class ProjectileLauncher : MonoBehaviour
 {
-    [SerializeField] private DamageSourceSO _damageSource;
-    [SerializeField]
-    private float _shootCD = 1;
+    [SerializeField] public DamageSourceSO DamageSource;
 
     [SerializeField] private Transform _muzzle;
+
+    public float CD;
     
     [Space]
     [SerializeField]
@@ -37,14 +37,14 @@ public class ProjectileLauncher : MonoBehaviour
         
         _currentTime += Time.deltaTime;
 
-        if (_target == null || _currentTime < _shootCD || !_canShoot)
+        if (_target == null || _currentTime < CD || !_canShoot)
         {
             return;
         }
 
         _currentTime = 0;
         //Creates the projectile that will be shoot.
-        _damageSource.CreateOne(_muzzle, Target.transform);
+        DamageSource.CreateOne(gameObject, Target, _muzzle);
         OnShoot?.Invoke();
     }
 }
