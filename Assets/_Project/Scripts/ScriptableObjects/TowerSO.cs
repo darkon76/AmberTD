@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/TowerScriptableObject", order = 1)]
 public class TowerSO : ScriptableObject
@@ -16,6 +13,10 @@ public class TowerSO : ScriptableObject
     public DamageSourceSO Projectile;
 
 
+    /// <summary>
+    /// Creates the gameobject tower and initialize it. 
+    /// </summary>
+    /// <param name="position"></param>
     public void Create(Vector3 position)
     {
         var go = PoolManager.RequestGameObject(Prefab);

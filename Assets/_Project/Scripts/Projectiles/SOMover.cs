@@ -1,8 +1,9 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Move object to target. 
+/// </summary>
 public abstract class SOMover : MonoBehaviour
 {
     public virtual GameObject Target { get; set; }

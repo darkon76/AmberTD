@@ -45,6 +45,8 @@ public class UITower : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragH
         _plane = new Plane(Vector3.up, -Offset);
     }
 
+    //Creates the ghost tower.
+    //Todo: Validate if the tower can be build.
     public void OnBeginDrag(PointerEventData eventData)
     {
         _ghostTower = PoolManager.RequestGameObject(GhostTowerPrefab.gameObject);
@@ -52,6 +54,8 @@ public class UITower : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragH
         _ghostTower.SetActive(true);
     }
 
+    //Check if the end position is valid and ask the TowerSo to create a tower there.
+    //Todo: Remove tower cost.
     public void OnEndDrag(PointerEventData eventData)
     {
         _ghostTower.SetActive(false);

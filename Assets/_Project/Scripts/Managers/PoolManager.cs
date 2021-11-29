@@ -1,6 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// A wrapper for multiple object pools for easy access and control.
+/// TODO: Clear the pools when reaching the main menu.
+/// </summary>
 public static class PoolManager
 {
     private static GameObject poolHolder;

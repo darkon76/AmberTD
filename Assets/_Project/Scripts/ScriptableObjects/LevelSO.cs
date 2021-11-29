@@ -1,5 +1,5 @@
 using UnityEngine;
-
+//TODO: WIP
 [System.Serializable]
 [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/LevelSO")]
 public class LevelSO : ScriptableObject

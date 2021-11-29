@@ -1,7 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// TODO: Not enough time.
+/// </summary>
 public class SpawnerManager : MonoBehaviour
 {
     

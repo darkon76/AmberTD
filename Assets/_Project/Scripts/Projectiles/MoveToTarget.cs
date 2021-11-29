@@ -15,6 +15,7 @@ public class MoveToTarget : SOMover
         {
             _target = value;
             _offset = Vector3.zero;
+            //The target origin is at the ground it is better to target the center of the collider.
             if (_target.GetComponent<TargetCollider>() == null)
             {
                 return;

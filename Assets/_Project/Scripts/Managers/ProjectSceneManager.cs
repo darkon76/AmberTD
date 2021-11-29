@@ -2,7 +2,9 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+/// <summary>
+/// Barebones Scene manager.
+/// </summary>
 public class ProjectSceneManager : MonoBehaviour
 {
     [SerializeField] public int _gameplaySceneOffset = (int)SceneType.Gameplay;
@@ -20,6 +22,9 @@ public class ProjectSceneManager : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// If the gameplayui scene isn't active it automatically adds it. 
+    /// </summary>
     private void CheckGameplayUI()
     {
         if (_currentSceneIndex < _gameplaySceneOffset)
@@ -60,15 +65,6 @@ public class ProjectSceneManager : MonoBehaviour
         EventManager.Trigger(eEvent.LoadScene);
         StartCoroutine(RestartRoutine());
     }
-
-    //private IEnumerator RestartRoutine()
-    //{
-    //    yield return SceneManager.UnloadSceneAsync(_currentSceneIndex);
-    //    yield return SceneManager.LoadSceneAsync((int) SceneType.LoadingScene, LoadSceneMode.Additive);
-    //    yield return new WaitForSeconds(1f);
-    //    yield return SceneManager.LoadSceneAsync(_currentSceneIndex, LoadSceneMode.Additive);
-    //    yield return SceneManager.UnloadSceneAsync((int)SceneType.LoadingScene);
-    //}
 
     private IEnumerator RestartRoutine()
     {

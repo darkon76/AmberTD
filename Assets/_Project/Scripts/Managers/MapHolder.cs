@@ -1,6 +1,10 @@
-using System;
 using UnityEngine;
 
+/// <summary>
+/// Holds the scene tile map. 
+/// Currently used to validate if the tower can be dropped. 
+/// TODO: avoid the singleton.
+/// </summary>
 [System.Serializable]
 public class MapHolder:MonoBehaviour
 {

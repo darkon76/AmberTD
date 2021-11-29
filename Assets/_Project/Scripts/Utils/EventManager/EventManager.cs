@@ -55,7 +55,7 @@ public static class EventManager
 
     #endregion
 
-    #region SingleAction
+    #region Event with Parameters
 
     /// <summary>
     /// Starts the listening an event.

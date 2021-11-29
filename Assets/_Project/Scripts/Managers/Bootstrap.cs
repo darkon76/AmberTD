@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class BootStrapper : MonoBehaviour
 {
+    //Creates a gameobject will all the global managers.
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     static void OnRuntimeMethodLoad()
     {

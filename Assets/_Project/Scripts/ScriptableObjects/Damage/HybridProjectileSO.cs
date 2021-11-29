@@ -5,6 +5,8 @@ public class HybridProjectileSO : ProjectileDamageSourceSO
 {
     [SerializeField] private GameObject _prefab;
 
+    //Can do single and aoe damage
+    //Array for the future because there can be different damage types, like fire, pierce etc.
     public SingleTargetDamageDealer[] _singleTargetDamage;
     public AoeDamageDealer[] _aoeDamage;
     public override void CreateOne(GameObject source, GameObject target, Transform damageOrigin)

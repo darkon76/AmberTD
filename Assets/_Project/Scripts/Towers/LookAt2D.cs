@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+//Look at target keeping the up.
 public class LookAt2D : MonoBehaviour
 {
     public GameObject Target;

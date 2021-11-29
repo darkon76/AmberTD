@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/Projectiles/AoeProjectileSO")]
@@ -7,7 +5,7 @@ public class AoeProjectileSO : ProjectileDamageSourceSO
 {
     [SerializeField] private GameObject _prefab;
 
-    public AoeDamageDealer _damage;
+    public AoeDamageDealer Damage;
     public override void CreateOne(GameObject source, GameObject target,  Transform damageOrigin)
     {
         var projectileGO = PoolManager.RequestGameObject(_prefab, 4);
@@ -21,6 +19,6 @@ public class AoeProjectileSO : ProjectileDamageSourceSO
 
     public override void DealDamage(GameObject source, GameObject target)
     {
-        _damage.DealDamage(source, target);
+        Damage.DealDamage(source, target);
     }
 }

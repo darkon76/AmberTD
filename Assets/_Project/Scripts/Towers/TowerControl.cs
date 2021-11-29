@@ -38,7 +38,7 @@ public class TowerControl : MonoBehaviour
     {
         _targeting.OnTargetChanged -= TargetChanged;
     }
-
+    //Link the targets, it can be done by an event from the Targeting
     private void TargetChanged()
     {
         var target = _targeting.Target;

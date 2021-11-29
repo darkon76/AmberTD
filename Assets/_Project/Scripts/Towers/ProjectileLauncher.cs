@@ -1,6 +1,9 @@
 using System;
 using UnityEngine;
 
+/// <summary>
+/// Wait the CD to shoot a projectile.
+/// </summary>
 public class ProjectileLauncher : MonoBehaviour
 {
     [SerializeField] public DamageSourceSO DamageSource;

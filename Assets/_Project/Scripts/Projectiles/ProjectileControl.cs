@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ProjectileControl : MonoBehaviour
 {
-
+    //TODO: Time
     private GameObject _hitEffect;
     
     //Just for debug it can be removed later.
