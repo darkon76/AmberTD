@@ -13,6 +13,8 @@ public class UFOAI : MonoBehaviour
     [SerializeField]
     private GameObject DeadEffect;
 
+    public int PointsWorth = 2;
+
 
     private void Awake()
     {
@@ -49,7 +51,7 @@ public class UFOAI : MonoBehaviour
         _moveToTarget.enabled = false;
         _collider.enabled = false;
         StartCoroutine(DeathRoutine());
-
+        EventManager.Trigger(eEvent.PointsScored, PointsWorth);
         if (DeadEffect != null)
         {
             var deadSO = PoolManager.RequestGameObject(DeadEffect);

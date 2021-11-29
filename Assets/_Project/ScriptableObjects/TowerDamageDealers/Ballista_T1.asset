@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3115443e494a8e34db39c1cf8de6a8c1, type: 3}
   m_Name: Ballista_T1
   m_EditorClassIdentifier: 
-  CD: 1
   Speed: 15
-  _prefab: {fileID: 8141313245726302155, guid: 965b1bd64ba3c0244bb438d8f2945061, type: 3}
+  _prefab: {fileID: 8141313245726302155, guid: 84e007b4574f2fd42be4f9163d778d43, type: 3}
   _damage:
-    Damage: 2
+    Damage: 1

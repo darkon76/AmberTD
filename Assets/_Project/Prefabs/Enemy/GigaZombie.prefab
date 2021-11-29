@@ -177,8 +177,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _aiPath: {fileID: 0}
-  Speed: 0.5
+  Speed: 0.6
   MaxSpeed: 1
+  PointsWorth: 100
 --- !u!54 &2486360866394657547
 Rigidbody:
   m_ObjectHideFlags: 0

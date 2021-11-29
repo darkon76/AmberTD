@@ -5,10 +5,15 @@ public enum eEvent
     LoadScene,
     
     //Level Control
-    EnemyObjectiveCreated = 1000,
-    PlayerLose,
+    PlayerLose = 1000,
+    PointsScored,
     StopLevel,
+
     RandomEventName,
     Decrease,
+
+
+    //Level Control parameters.
+    EnemyObjectCreated = 2000,
     MAX
 }

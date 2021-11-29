@@ -1,7 +1,6 @@
 using System.Collections;
 using Pathfinding;
 using UnityEngine;
-using UnityEngine.Windows.WebCam;
 
 public class EnemyController : MonoBehaviour
 {
@@ -25,6 +24,8 @@ public class EnemyController : MonoBehaviour
 
     public float Speed = .5f;
     public float MaxSpeed = 1;
+
+    public int PointsWorth = 1;
 
 
     private void Awake()
@@ -115,6 +116,7 @@ public class EnemyController : MonoBehaviour
         {
             _aiPath.canMove = false;
         }
+        EventManager.Trigger(eEvent.PointsScored, PointsWorth);
         _deathRoutine = DeathRoutine();
         StartCoroutine(_deathRoutine);
     }

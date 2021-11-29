@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour
@@ -14,16 +12,17 @@ public class LevelManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        EnemyObjective.OnStart += EnemyObjectiveCreated;
+        EventManager.Listen(eEvent.EnemyObjectCreated, EnemyObjectiveCreated);
     }
 
     //It will never be called.
     private void OnDestroy()
     {
-        EnemyObjective.OnStart -= EnemyObjectiveCreated;
+        EventManager.Remove(eEvent.EnemyObjectCreated, EnemyObjectiveCreated);
     }
-    private void EnemyObjectiveCreated(EnemyObjective enemyObjective)
+    private void EnemyObjectiveCreated(object[] parameters)
     {
+        var enemyObjective = parameters[0] as EnemyObjective;
         UnRegisterEnemyObjective();
         EnemyObjective = enemyObjective;
     }

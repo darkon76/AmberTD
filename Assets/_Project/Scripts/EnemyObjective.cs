@@ -4,7 +4,6 @@ using UnityEngine;
 public class EnemyObjective : MonoBehaviour
 {
 
-    public static event Action<EnemyObjective> OnStart;
     private HealthHolder _health;
 
     private void Awake()
@@ -22,7 +21,7 @@ public class EnemyObjective : MonoBehaviour
     private void Start()
     {
         //Register to the level manager
-        OnStart?.Invoke(this);
+        EventManager.Trigger(eEvent.EnemyObjectCreated, this);
     }
 
     private void OnTriggerEnter(Collider other)

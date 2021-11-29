@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a5b351f1209b2649ac6e64c85945816, type: 3}
   m_Name: AA_T1
   m_EditorClassIdentifier: 
-  CD: 0.1
   Speed: 10
-  _prefab: {fileID: 8141313245726302155, guid: 965b1bd64ba3c0244bb438d8f2945061, type: 3}
+  _prefab: {fileID: 8141313245726302155, guid: c7bf0211f15b0cf4db2bdf1a00b91124, type: 3}
   _singleTargetDamage:
-  - Damage: 2
+  - Damage: 0.1
   _aoeDamage:
   - Damage: 1
     _radius: 0.5

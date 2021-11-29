@@ -15,6 +15,7 @@ MonoBehaviour:
   NameId: 
   Icon: {fileID: 21300000, guid: 42b43b4ff44287a4c90f560057e6b195, type: 3}
   Cost: 1
-  AttackRadius: 5
-  Projectile: {fileID: 11400000, guid: dcad30a46a95f454eb96b2c6c4d101d2, type: 2}
+  AttackRadius: 10
+  AttackCd: 0.1
   Prefab: {fileID: 6152015856272851650, guid: 3f57af5bb536b8c459236a08ef6108a7, type: 3}
+  Projectile: {fileID: 11400000, guid: dcad30a46a95f454eb96b2c6c4d101d2, type: 2}

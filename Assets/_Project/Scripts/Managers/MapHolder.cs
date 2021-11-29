@@ -16,7 +16,7 @@ public class MapHolder:MonoBehaviour
     {
         Instance = this;
         Tiles = new TileState[Width * Height];
-        EnemyObjective.OnStart += EnemyObjectiveOnOnStart;
+        EventManager.Listen(eEvent.EnemyObjectCreated, EnemyObjectiveOnOnStart);
         EventManager.Listen(eEvent.LoadScene, OnLoadScene);
     }
 
@@ -28,16 +28,17 @@ public class MapHolder:MonoBehaviour
         }
     }
 
-    private void EnemyObjectiveOnOnStart(EnemyObjective obj)
+    private void EnemyObjectiveOnOnStart(object[] parameters)
     {
-        var position = obj.transform.position;
+        var enemyObject = parameters[0] as EnemyObjective;
+        var position = enemyObject.transform.position;
         position.RoundToInt();
         TryPlace((int)position.x, (int)position.z, TileState.Blocked);
     }
 
     private void OnDestroy()
     {
-        EnemyObjective.OnStart -= EnemyObjectiveOnOnStart;
+        EventManager.Remove(eEvent.EnemyObjectCreated, EnemyObjectiveOnOnStart);
         EventManager.Remove(eEvent.LoadScene, OnLoadScene);
     }
 

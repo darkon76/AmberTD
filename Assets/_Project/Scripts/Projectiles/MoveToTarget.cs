@@ -14,6 +14,7 @@ public class MoveToTarget : SOMover
         set
         {
             _target = value;
+            _offset = Vector3.zero;
             if (_target.GetComponent<TargetCollider>() == null)
             {
                 return;

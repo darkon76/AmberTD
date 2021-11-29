@@ -61,13 +61,21 @@ public class ProjectSceneManager : MonoBehaviour
         StartCoroutine(RestartRoutine());
     }
 
+    //private IEnumerator RestartRoutine()
+    //{
+    //    yield return SceneManager.UnloadSceneAsync(_currentSceneIndex);
+    //    yield return SceneManager.LoadSceneAsync((int) SceneType.LoadingScene, LoadSceneMode.Additive);
+    //    yield return new WaitForSeconds(1f);
+    //    yield return SceneManager.LoadSceneAsync(_currentSceneIndex, LoadSceneMode.Additive);
+    //    yield return SceneManager.UnloadSceneAsync((int)SceneType.LoadingScene);
+    //}
+
     private IEnumerator RestartRoutine()
     {
-        yield return SceneManager.UnloadSceneAsync(_currentSceneIndex);
-        yield return SceneManager.LoadSceneAsync((int) SceneType.LoadingScene, LoadSceneMode.Additive);
-        yield return new WaitForSeconds(1f);
-        yield return SceneManager.LoadSceneAsync(_currentSceneIndex, LoadSceneMode.Additive);
-        yield return SceneManager.UnloadSceneAsync((int)SceneType.LoadingScene);
+        yield return SceneManager.LoadSceneAsync((int) SceneType.LoadingScene);
+
+        yield return SceneManager.LoadSceneAsync(_currentSceneIndex);
+        CheckGameplayUI();
     }
 
 }
