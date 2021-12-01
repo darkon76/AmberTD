@@ -12,12 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df9ae69259ae0414c9488c056810524f, type: 3}
   m_Name: Cannon_T1
   m_EditorClassIdentifier: 
-  CD: 1
   Speed: 5
   _prefab: {fileID: 8141313245726302155, guid: 965b1bd64ba3c0244bb438d8f2945061, type: 3}
-  _damage:
-    Damage: 5
-    _radius: 0.1
+  Damage:
+    Damage: 0
+    _radius: 0
     _layerMask:
       serializedVersion: 2
-      m_Bits: 64
+      m_Bits: 256
